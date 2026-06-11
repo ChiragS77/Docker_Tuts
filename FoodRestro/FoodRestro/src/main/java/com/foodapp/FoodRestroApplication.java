@@ -4,10 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FoodAppApplication {
+public class FoodRestroApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FoodAppApplication.class, args);
+		SpringApplication.run(FoodRestroApplication.class, args);
+        System.out.println("Runs Successfully....");
 	}
 
 }
