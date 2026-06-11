@@ -1,0 +1,29 @@
+
+#mysql is a service name
+services:
+  mysql:
+    image: mysql:8
+    container_name: cinema-mysql
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: foodapk
+
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - food-mysql-data:/var/lib/mysql
+
+  movie-app:
+    build: .
+    container_name: cinema-app
+
+    ports:
+      - "9090:8080"
+
+    depends_on:
+      - mysql
+
+volumes:
+  food-mysql-data:
