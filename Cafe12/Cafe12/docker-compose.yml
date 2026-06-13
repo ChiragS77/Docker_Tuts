@@ -1,0 +1,27 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: cafe-container2
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: foodapk
+
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - food-mysql-data:/var/lib/mysql  # 🌟 Fixed typo here (added the 's')
+
+  cafe12:
+    build: .
+    container_name: cafe-12
+
+    ports:
+      - "9090:8080"
+
+    depends_on:
+      - mysql
+
+volumes:
+  food-mysql-data:                      # Matches the service volume name perfectly
